@@ -1,0 +1,13 @@
+p {
+    color: #00008B;
+    font-size: 32px;
+}
+
+.my-button {
+            background-color: #7c4caf; /* Цвет фона */
+            color: white; /* Цвет текста */
+            padding: 10px 20px; /* Отступы */
+            font-size: 16px; /* Шрифт */
+            border: none; /* Убираем границу */
+            border-radius: 5px; /* Закругление */
+        }
