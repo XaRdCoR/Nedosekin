@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Программа выводит таблицу умножения
+// Выполнил(а): Иванов И.
+
+function makeTable() {
+    console.log('Таблица умножения:');
+    console.log(''); // пустая строка
+    
+    for (var i = 1; i < 11; i++) {
+        var line = '';
+        
+        for (var j = 1; j < 11; j++) {
+            var result = i * j;
+            // Добавляем пробелы для красоты
+            if (result < 10) {
+                line += result + '   ';
+            } else if (result < 100) {
+                line += result + '  ';
+            } else {
+                line += result + ' ';
+            }
+        }
+        
+        console.log(line);
+    }
+}
+
+// Вызываем функцию
+makeTable();
+// Получить 3 случайных числа
+// Может иногда повторяться :(
+
+let num1 = Math.floor(Math.random() * 101);
+let num2 = Math.floor(Math.random() * 101);
+let num3 = Math.floor(Math.random() * 101);
+
+// Проверяем чтобы не повторялись
+while (num2 === num1) {
+    num2 = Math.floor(Math.random() * 101);
+}
+
+while (num3 === num1 || num3 === num2) {
+    num3 = Math.floor(Math.random() * 101);
+}
+
+console.log("Случайные числа:", num1, num2, num3);
+    </script>
+</body>
+</html>
