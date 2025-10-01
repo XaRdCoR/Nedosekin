@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кафе "Просто вкусно"</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Кафе "Просто вкусно"</h1>
+        <p>Выберите блюда и нажмите заказать</p>
+    </div>
+    
+    <input type="text" class="search" placeholder="Поиск...">
+    
+    <div class="menu">
+        <div class="item">
+            <input type="checkbox" id="food1">
+            <label for="food1"><strong>Салат Оливье</strong> - 300 руб.</label>
+        </div>
+        
+        <div class="item">
+            <input type="checkbox" id="food2">
+            <label for="food2"><strong>Котлета с пюре</strong> - 350 руб.</label>
+        </div>
+        
+        <div class="item">
+            <input type="checkbox" id="food3">
+            <label for="food3"><strong>Суп куриный</strong> - 280 руб.</label>
+        </div>
+        
+        <div class="item">
+            <input type="checkbox" id="food4">
+            <label for="food4"><strong>Компот</strong> - 80 руб.</label>
+        </div>
+        
+        <div class="item">
+            <input type="checkbox" id="food5">
+            <label for="food5"><strong>Шарлотка</strong> - 200 руб.</label>
+        </div>
+    </div>
+    
+    <button class="btn" onclick="orderFood()">Заказать</button>
+    
+    <div class="alert" id="alert"></div>
+
+    <script>
+        function orderFood() {
+            let selected = [];
+            let boxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            
+            if (boxes.length === 0) {
+                alert('Выберите блюда!');
+                return;
+            }
+            
+            boxes.forEach(box => {
+                let name = box.nextElementSibling.textContent.split(' - ')[0];
+                selected.push(name);
+            });
+            
+            let text = selected.join(', ');
+            let alertBox = document.getElementById('alert');
+            
+            alertBox.textContent = 'Заказано: ' + text + '. Ждите!';
+            alertBox.style.display = 'block';
+            
+            setTimeout(() => {
+                alertBox.style.display = 'none';
+            }, 4000);
+            
+            boxes.forEach(box => {
+                box.checked = false;
+            });
+        }
+    </script>
+</body>
+</html>
